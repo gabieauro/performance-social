@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paleta: slate (texto e superfícies) + emerald (crescimento). Tema claro, como especificado. */
+:root {
+  --bg: #f8fafc;
+  --ink: #0f172a;
+  --line: #e2e8f0;
+  --up: #059669;
+  color-scheme: light;
+}
+html, body { background: var(--bg); color: var(--ink); }
+body { -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { text-wrap: balance; }
+
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.tnum { font-variant-numeric: tabular-nums; }
+.eyebrow { letter-spacing: .08em; text-transform: uppercase; }
+.scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.cell-input { width: 100%; min-width: 4.5rem; background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 4px 6px; text-align: right; font-variant-numeric: tabular-nums; }
+.cell-input:hover { border-color: var(--line); background: #fff; }
+.cell-input:focus { outline: none; border-color: var(--up); background: #fff; box-shadow: 0 0 0 3px rgba(5,150,105,.15); }
+.text-input { width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+.text-input:focus { outline: none; border-color: var(--up); box-shadow: 0 0 0 3px rgba(5,150,105,.15); }
+button:focus-visible, a:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--up); outline-offset: 2px; }
+
+.fade-in { animation: fadeIn .25s ease-out; }
+@keyframes fadeIn { from { opacity: .4; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } html { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-icon { transform: rotate(45deg); }
